@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function LoginPage() {
+export default function AuthPage() {
+  const [isLogin, setIsLogin] = useState(true);
+
+  const handleFormType = () => {
+    setIsLogin(!isLogin);
+  }
+
     return (
       <>
-        {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full bg-white">
-          <body class="h-full">
-          ```
-        */}
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
@@ -19,7 +17,7 @@ export default function LoginPage() {
               alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign in to your account
+              {isLogin ? 'Sign in to CupBud' : 'Create a CupBud account'}
             </h2>
           </div>
   
@@ -75,9 +73,9 @@ export default function LoginPage() {
             </form>
   
             <p className="mt-10 text-center text-sm text-gray-500">
-              Not a member?{' '}
-              <a href="#" className="font-semibold leading-6 text-green-600 hover:text-green-500">
-                Start cooking now!
+              {isLogin ? 'Not a member? ' : 'Already a member? '}
+              <a onClick={handleFormType} className="cursor-pointer	font-semibold leading-6 text-green-600 hover:text-green-500">
+                {isLogin ? 'Register now!' : 'Login now!'}
               </a>
             </p>
           </div>

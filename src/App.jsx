@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/LoginPage";
+import LoginPage from "./pages/AuthPage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" Component={HomePage} />
+      <Route path="/authenticate" Component={LoginPage} />
     </Routes>
   );
 }
